@@ -18,17 +18,17 @@ namespace Discount.API.Domain
         public int ValueInCents { get; }
 
         public Discount RuleDiscount(int priceInCents, DateTime dateOfBirth) =>
-            (priceInCents, dateOfBirth, DateTime.Now) switch
+            (priceInCents, dateOfBirth, DateTime.Now.Date) switch
             {
                 var (price, birth, dateNow) when
                     (birth == dateNow && _dateBlackFriday == dateNow) =>
-                        new Discount(0.10f, (int)(price / 0.10f)),
+                        new Discount(0.10f, (int)(price * 0.10f)),
 
                 var (price, birth, dateNow) when
                     (birth == dateNow && _dateBlackFriday != dateNow) =>
-                        new Discount(0.05f, (int)(price / 0.05f)),
+                        new Discount(0.05f, (int)(price * 0.05f)),
 
-                (_, _, _) => new Discount(0.0f, 0)
+                (_, _, _) => new Discount(0, 0)
             };
     }
 }

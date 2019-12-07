@@ -2,6 +2,7 @@
 using Discount.API.Infrastructure.Context;
 using Discount.API.Infrastructure.Entities;
 using Discount.API.Infrastructure.Repositories.Interfaces;
+using System;
 using System.Threading.Tasks;
 
 namespace Discount.API.Infrastructure.Repositories
@@ -15,13 +16,14 @@ namespace Discount.API.Infrastructure.Repositories
             _discountContext = context;
         }
 
-        public async Task<Product> GetProductById(string id)
+        public async Task<Product> GetProductById(Guid id)
         {
             var query = @"SELECT
-                            id,
-                            price_in_cents,
-                            title,
-                            description
+                            id AS Id,
+                            price_in_cents AS PriceInCents,
+                            title AS Title,
+                            description AS Description
+                          FROM public.product
                           WHERE
                              id = @Id";
 

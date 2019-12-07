@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Discount.API.Infrastructure.Repositories.Interfaces;
 using Grpc.Core;
@@ -25,8 +26,8 @@ namespace Discount.API
         {
             DiscountResponse discountResponse = null;
 
-            var product = await _productRepository.GetProductById(request.ProductId);
-            var user = await _userRepository.GetUserById(request.UserId);
+            var product = await _productRepository.GetProductById(Guid.Parse(request.ProductId));
+            var user = await _userRepository.GetUserById(Guid.Parse(request.UserId));
 
             if (product == null || user == null)
             {

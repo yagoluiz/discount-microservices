@@ -16,15 +16,16 @@ namespace Discount.API.Infrastructure.Repositories
             _discountContext = discountContext;
         }
 
-        public async Task<User> GetUserById(string id)
+        public async Task<User> GetUserById(Guid id)
         {
             var query = @"SELECT
-                            id,
-                            first_name,
-                            last_name,
-                            date_of_birth
+                            id AS Id,
+                            first_name AS FirstName,
+                            last_name AS LastName,
+                            date_of_birth AS DateOfBirth
+                          FROM public.user
                           WHERE
-                             id = @Id";
+                             Id = @Id";
 
             return await _discountContext
                 .DiscountConnection
