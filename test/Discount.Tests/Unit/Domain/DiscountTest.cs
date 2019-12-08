@@ -11,7 +11,7 @@ namespace Discount.Tests.Unit.Domain
             var princeInCents = 100;
             var dateOfBrith = DateTime.Now.Date;
 
-            var discount = new API.Domain.Discount()
+            var discount = API.Domain.Discount
                 .RuleDiscount(princeInCents, dateOfBrith);
 
             Assert.Equal(0.05f, discount.Pct);
@@ -22,9 +22,9 @@ namespace Discount.Tests.Unit.Domain
         public void RuleDiscount_NotDiscountTest()
         {
             var princeInCents = 100;
-            var dateOfBrith = DateTime.Now.Date.AddDays(-1);
+            var dateOfBrith = new DateTime(2000, 01, 01);
 
-            var discount = new API.Domain.Discount()
+            var discount = API.Domain.Discount
                 .RuleDiscount(princeInCents, dateOfBrith);
 
             Assert.Equal(0, discount.Pct);

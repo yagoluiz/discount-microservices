@@ -4,7 +4,7 @@ namespace Discount.API.Domain
 {
     public class Discount
     {
-        private readonly DateTime _dateBlackFriday = new DateTime(2019, 11, 25);
+        private static readonly DateTime _dateBlackFriday = new DateTime(2019, 11, 25);
 
         public Discount() { }
 
@@ -17,16 +17,16 @@ namespace Discount.API.Domain
         public float Pct { get; }
         public int ValueInCents { get; }
 
-        public Discount RuleDiscount(int priceInCents, DateTime dateOfBirth) =>
+        public static Discount RuleDiscount(int priceInCents, DateTime dateOfBirth) =>
             (priceInCents, dateOfBirth, DateTime.Now.Date) switch
             {
                 var (price, birth, dateNow) when
-                    (birth == dateNow && _dateBlackFriday == dateNow) =>
-                        new Discount(0.10f, (int)(price * 0.10f)),
-
-                var (price, birth, dateNow) when
                     (birth == dateNow && _dateBlackFriday != dateNow) =>
                         new Discount(0.05f, (int)(price * 0.05f)),
+
+                var (price, _, dateNow) when
+                    (_dateBlackFriday == dateNow) =>
+                        new Discount(0.10f, (int)(price * 0.10f)),
 
                 (_, _, _) => new Discount(0, 0)
             };
