@@ -1,6 +1,6 @@
 # Discount - Microservices
 
-Microservice responsible for submitting discount data information via gRPC to (product microservice)[https://github.com/yagoluiz/product-microservices] (developing).
+Microservice responsible for submitting discount data information via gRPC to [product microservice](https://github.com/yagoluiz/product-microservices) (developing).
 
 ## Data information
 
