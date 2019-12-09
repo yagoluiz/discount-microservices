@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+    discount-microservices:
+        image: discount-microservices
+        build:
+            context: .
+        ports:
+            - "5000:80"
+        networks:
+            - microservices-network
+    
+    db-postgres:
+        image: postgres
+        environment: 
+            POSTGRES_PASSWORD: "admin"
+        ports: 
+            - "15432:5432"
+        volumes:
+            - ./sql/store.sql:/docker-entrypoint-initdb.d/init.sql
+        networks: 
+            - microservices-network
+
+networks:
+    microservices-network:
+        driver: bridge
