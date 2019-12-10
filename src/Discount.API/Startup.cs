@@ -13,6 +13,7 @@ namespace Discount.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+            services.AddMemoryCache();
 
             services.AddTransient<DiscountContext>();
             services.AddTransient<IProductRepository, ProductRepository>();
