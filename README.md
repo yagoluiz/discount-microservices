@@ -1,6 +1,6 @@
 # Discount - Microservices
 
-Microservice responsible for submitting discount data information via gRPC to [product microservice](https://github.com/yagoluiz/product-microservices) (developing).
+Microservice responsible for submitting discount data information via gRPC [product microservice](https://github.com/yagoluiz/product-microservices).
 
 ## Data information
 
@@ -8,13 +8,17 @@ Data is stored in Postgres database. The scripts for table generation and initia
 
 ## Instructions for run project
 
-Run project via docker or via Visual Studio (F5 or CTRL + F5) or Visual Studio Code (dotnet core CLI or tasks project).
+Run project via docker, via Visual Studio (F5 or CTRL + F5), Visual Studio Code (tasks project) or dotnet CLI.
 
 ### Container
 
 * Docker:
 
 `docker build -t discount-microservices .`
+
+Run project [product microservice](https://github.com/yagoluiz/product-microservices):
+
+`docker build -t product-microservices .`
 
 * Docker compose:
 
