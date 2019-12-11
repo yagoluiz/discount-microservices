@@ -100,9 +100,25 @@ INSERT INTO public.product(
 	id, price_in_cents, title, description)
 	VALUES ('a0f5e2f7-7d8e-4c7a-bc0e-7cb40d9af91a', 1000, 'iPhone 11', 'Uau! New iPhone available!');
 
+INSERT INTO public.product(
+	id, price_in_cents, title, description)
+	VALUES ('2a6926e1-51b6-4c0b-b3a4-b74f408426ee', 500, 'Apple Watch', NULL);
+
+INSERT INTO public.product(
+	id, price_in_cents, title, description)
+	VALUES ('db366ebc-e13e-4c4d-99a8-4a1f6b410ad1', 100, 'AirPods', NULL);
+
 INSERT INTO public."user"(
 	id, first_name, last_name, date_of_birth)
-	VALUES ('9a2aaed6-38f8-4f31-9a90-751f78543ae7', 'Yago Luiz', 'dos Santos', '1993-02-04');
+	VALUES ('9a2aaed6-38f8-4f31-9a90-751f78543ae7', 'Thuarnan', 'Nurandir', '1990-03-05');
+
+INSERT INTO public."user"(
+	id, first_name, last_name, date_of_birth)
+	VALUES ('e2bda1d7-2c70-4219-a099-60077d88ea12', 'Ovten', 'Insi', '1995-10-07');
+
+INSERT INTO public."user"(
+	id, first_name, last_name, date_of_birth)
+	VALUES ('3b1c5fc4-3b82-447c-89cf-120addcf7e3d', 'Ulmti', 'Veon', '1980-05-20');
 
 --
 -- PostgreSQL database dump complete

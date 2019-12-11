@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Wiz.CRM.API.Middlewares;
 
 namespace Discount.API
 {
@@ -13,6 +14,7 @@ namespace Discount.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+            services.AddMemoryCache();
 
             services.AddTransient<DiscountContext>();
             services.AddTransient<IProductRepository, ProductRepository>();
@@ -27,6 +29,11 @@ namespace Discount.API
             }
 
             app.UseRouting();
+
+            app.UseExceptionHandler(new ExceptionHandlerOptions
+            {
+                ExceptionHandler = new ErrorHandlerMiddleware(env).Invoke
+            });
 
             app.UseEndpoints(endpoints =>
             {
