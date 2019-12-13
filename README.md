@@ -12,6 +12,8 @@ Data is stored in Postgres database. The scripts for table generation and initia
 
 Run project via docker, via Visual Studio (F5 or CTRL + F5), Visual Studio Code (tasks project) or dotnet CLI.
 
+For run project and integration testing, the database must be run.
+
 ### Container
 
 * Docker:
