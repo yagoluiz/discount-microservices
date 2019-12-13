@@ -1,6 +1,6 @@
 # Discount - Microservices
 
-![](https://github.com/yagoluiz/discount-microservices/workflows/.github/workflows/docker-ci.yml/badge.svg)
+![](https://github.com/yagoluiz/discount-microservices/workflows/Docker%20Image%20CI/badge.svg)
 
 Microservice responsible for submitting discount data information via gRPC [product microservice](https://github.com/yagoluiz/product-microservices).
 
