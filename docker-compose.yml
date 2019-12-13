@@ -5,6 +5,8 @@ services:
         image: discount-microservices
         build:
             context: .
+        environment:
+            - DiscountConnectionString=User ID=postgres;Password=admin;Server=db-postgres;Port=5432;Database=store;Integrated Security=true;Pooling=true;
         ports:
             - "5000:80"
         depends_on:
@@ -16,6 +18,9 @@ services:
         image: product-microservices
         build:
             context: .
+        environment:
+            - DATABASE_HOST=db-postgres
+            - DISCOUNT_HOST=discount-microservices:80
         ports:
             - "3000:3000"
         depends_on:
